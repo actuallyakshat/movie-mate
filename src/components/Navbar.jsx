@@ -11,8 +11,10 @@ const Navbar = () => {
   return (
     <div className="flex justify-center items-center fixed w-full bg-darkGreen z-[100]">
       <div className="text-platinumSilver font-[500] flex justify-between items-center h-[5rem] max-w-[1240px] w-full px-4">
-        <h1 className="font-bold text-2xl uppercase cursor-pointer">
-          Movie Mate
+        <h1 className="text-2xl uppercase cursor-pointer font-Kanit font-[300] tracking-[0.2em]">
+          <Link to="hero" spy={true} smooth={true} offset={-50} duration={500}>
+            Movie Mate
+          </Link>
         </h1>
         <ul className="hidden md:flex text-[1.1rem] items-center ">
           <li className="p-4 hover:underline cursor-pointer">

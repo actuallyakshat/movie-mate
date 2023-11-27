@@ -13,7 +13,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="w-full py-16 bg-platinumSilver mt-16 px-4">
+    <div className="w-full py-16 bg-platinumSilver px-4">
       <div className="mx-auto max-w-[1600px] grid xl:grid-cols-3 text-center md:text-left">
         <div className="xl:col-span-2">
           <h1 className="md:text-4xl text-[1.6rem] font-bold py-2">

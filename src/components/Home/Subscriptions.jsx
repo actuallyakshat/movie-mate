@@ -4,7 +4,7 @@ import { FaUser } from "react-icons/fa";
 
 const Subscriptions = () => {
   return (
-    <div className="w-full py-[8rem] px-4 bg-platinumSilver" id="subscription">
+    <div className="w-full py-[8rem] px-4 bg-platinumSilver font-Kanit" id="subscription">
       <div className="max-w-[1300px] mx-auto grid md:grid-cols-3 gap-8">
         {/* Card1 */}
         <div className="w-full shadow-xl p-4 flex flex-col rounded-lg my-4 hover:scale-105 duration-300">
@@ -13,8 +13,8 @@ const Subscriptions = () => {
             Free
           </h2>
           <p className="text-center text-4xl font-bold">₹0</p>
-          <div className="font-medium mt-8">
-            <li className="py-4 border-b border-black border-opacity-30lack border-opacity-30 mx-8">
+          <div className="font-[300] mt-8">
+            <li className="py-4 border-b border-black border-opacity-30 mx-8">
               Limited Movies
             </li>
             <li className="py-4 border-b border-black border-opacity-30lack border-opacity-30 mx-8">
@@ -24,7 +24,7 @@ const Subscriptions = () => {
               Gender Specific Matches
             </li>
           </div>
-          <button className="bg-darkGreen w-[200px] rounded-md text-[1rem] text-white font-medium  my-6 mx-auto px-6 py-3">
+          <button className="bg-darkGreen w-[200px] rounded-md text-[1.2rem] text-white font-medium  my-6 mx-auto px-6 py-3">
             Sign up for free
           </button>
         </div>
@@ -37,7 +37,7 @@ const Subscriptions = () => {
             Pro
           </h2>
           <p className="text-center text-4xl font-bold">₹249</p>
-          <div className="font-medium mt-8">
+          <div className="font-[300] mt-8">
             <li className="py-4 border-b border-black border-opacity-30 mx-8">
               Unlimited Movies
             </li>
@@ -48,7 +48,7 @@ const Subscriptions = () => {
               Gender Specific Matches
             </li>
           </div>
-          <button className="bg-darkGreen w-[200px] rounded-md text-[1rem] text-white font-medium my-6 mx-auto px-6 py-3">
+          <button className="bg-darkGreen w-[200px] rounded-md text-[1.2rem] text-white font-medium my-6 mx-auto px-6 py-3">
             Start a Free Trial
           </button>
         </div>
@@ -61,7 +61,7 @@ const Subscriptions = () => {
             Super
           </h2>
           <p className="text-center text-4xl font-bold">₹599</p>
-          <div className="font-medium mt-8">
+          <div className="font-[300] mt-8">
             <li className="py-4 border-b border-black border-opacity-30 mx-8">
               Unlimited Movies
             </li>
@@ -72,7 +72,7 @@ const Subscriptions = () => {
               Gender Specific Matches
             </li>
           </div>
-          <button className="bg-darkGreen w-[200px] rounded-md text-[1rem] text-white font-medium my-6 mx-auto px-6 py-3">
+          <button className="bg-darkGreen w-[200px] rounded-md text-[1.2rem] text-white font-medium my-6 mx-auto px-6 py-3">
             Start a Free Trial
           </button>
         </div>

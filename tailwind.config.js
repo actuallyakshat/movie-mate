@@ -4,13 +4,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        'darkGreen': '#040d12' ,
-        'platinumSilver': '#EAEAEA',
-        'forestGreen' : '#18564C',
+        darkGreen: "#040d12",
+        platinumSilver: "#EAEAEA",
+        forestGreen: "#18564C",
+      },
+      fontFamily: {
+        Kanit: ["Kanit", "sans-serif"],
       },
       backgroundImage: {
-        'hero-curves': "url('/assets/hero-curves.svg')",
-      }
+        "hero-curves": "url('/assets/hero-curves.svg')",
+        "about-bg": "url('/assets/test-bg.svg')",
+      },
     },
   },
   plugins: [],
