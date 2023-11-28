@@ -5,13 +5,15 @@ import reviews from "../data";
 import About from "./Home/About";
 import Subscriptions from "./Home/Subscriptions";
 import Footer from "./Home/Footer";
+import Features from "./Home/Features";
 
 const Home = () => {
   return (
     <div>
       <Hero />
-      <About />
+      <Features />
       <Subscriptions />
+      <About />
       <Testimonial reviews={reviews} />
       <Contact />
       <Footer />

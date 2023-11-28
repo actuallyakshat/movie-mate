@@ -1,69 +1,123 @@
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
+import { Link as RouteLink, useLocation } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [nav, setNav] = useState(false);
+  const [showNavButtons, setShowNavButtons] = useState(true);
+  const setIsLoggedIn = props.setIsLoggedIn;
+  const [postLogin, setPostLogin] = useState(false);
+  const location = useLocation();
+  const [isHome, setIsHome] = useState(true);
   const handleNav = () => {
     setNav(!nav);
   };
+
+  const handleLoginSignupClick = () => {
+    setShowNavButtons(false);
+    setIsHome(false);
+  };
+
+  const handleMovieMateClick = () => {
+    setShowNavButtons(true);
+    setIsLoggedIn(true);
+    setIsHome(true);
+  };
+
+  useEffect(() => {
+    // Update isHome based on the current location
+    setIsHome(location.pathname === "/");
+    setShowNavButtons(location.pathname === "/");
+    if (location.pathname === "/dashboard") {
+      setPostLogin(true);
+    }
+    if (location.pathname === "/") {
+      setPostLogin(false);
+    }
+  }, [location.pathname]);
+
   return (
-    <div className="flex justify-center items-center fixed w-full bg-darkGreen z-[100]">
+    <div
+      className={`flex justify-center items-center fixed w-full ${
+        isHome ? "bg-darkGreen" : "bg-transparent"
+      } z-[100]`}
+    >
       <div className="text-platinumSilver font-[500] flex justify-between items-center h-[5rem] max-w-[1240px] w-full px-4">
-        <h1 className="text-2xl uppercase cursor-pointer font-Kanit font-[300] tracking-[0.2em]">
-          <Link to="hero" spy={true} smooth={true} offset={-50} duration={500}>
-            Movie Mate
-          </Link>
+        <h1
+          className="text-2xl uppercase cursor-pointer font-Kanit font-[300] tracking-[0.2em]"
+          onClick={handleMovieMateClick}
+        >
+          <RouteLink to="/">Movie Mate</RouteLink>
         </h1>
         <ul className="hidden md:flex text-[1.1rem] items-center ">
-          <li className="p-4 hover:underline cursor-pointer">
-            <Link
-              to="hero"
-              spy={true}
-              smooth={true}
-              offset={-50}
-              duration={500}
-            >
-              Home
-            </Link>
+          {showNavButtons && (
+            <>
+              <li className="p-4 hover:underline cursor-pointer">
+                <Link
+                  to="hero"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={500}
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="p-4 hover:underline cursor-pointer">
+                <Link
+                  to="about"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={500}
+                >
+                  About
+                </Link>
+              </li>
+              <li className="p-4 hover:underline cursor-pointer">
+                <Link
+                  to="subscription"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={500}
+                >
+                  Pricing
+                </Link>
+              </li>
+            </>
+          )}
+          <li className="p-4">
+            <RouteLink to="/login">
+              <button
+                onClick={handleLoginSignupClick}
+                className="px-4 py-1 rounded-md border border-platinumSilver text-platinumSilver hover:bg-platinumSilver hover:text-darkGreen transition-all duration-200"
+              >
+                Login
+              </button>
+            </RouteLink>
           </li>
-          <li className="p-4 hover:underline cursor-pointer">
-            <Link
-              to="about"
-              spy={true}
-              smooth={true}
-              offset={-50}
-              duration={500}
-            >
-              About
-            </Link>
-          </li>
-          <li className="p-4 hover:underline cursor-pointer">
-            <Link
-              to="subscription"
-              spy={true}
-              smooth={true}
-              offset={-50}
-              duration={500}
-            >
-              Pricing
-            </Link>
-          </li>
-          <li className="mx-2">
-            <button className="px-4 py-1 rounded-md border border-platinumSilver text-platinumSilver hover:bg-platinumSilver hover:text-darkGreen transition-all duration-200">
-              Login
-            </button>
-          </li>
-          <li>
-            <button className="px-4 py-1 rounded-md border border-platinumSilver text-platinumSilver hover:bg-platinumSilver hover:text-darkGreen transition-all duration-200">
-              Sign Up
-            </button>
-          </li>
-          {/* <li className="p-4">Browse Movies</li>
-        <li className="p-4">Upcoming meets</li>
-        <li className="p-4">Chat</li> */}
+          {!postLogin && (
+            <li>
+              <RouteLink to="/signup">
+                <button
+                  onClick={handleLoginSignupClick}
+                  className="px-4 py-1 rounded-md border border-platinumSilver text-platinumSilver hover:bg-platinumSilver hover:text-darkGreen transition-all duration-200"
+                >
+                  Sign Up{" "}
+                </button>
+              </RouteLink>
+            </li>
+          )}
+          {postLogin && (
+            <li className="p-4 hover:underline cursor-pointer">
+              <RouteLink to="/chat">Chat</RouteLink>
+            </li>
+          )}
         </ul>
+
         <div onClick={handleNav} className="block md:hidden">
           {nav ? <AiOutlineClose size={28} /> : <FiMenu />}
         </div>
@@ -78,18 +132,20 @@ const Navbar = () => {
             className={
               "font-bold text-2xl text-platinumSilver uppercase ml-2 mt-2"
             }
+            onClick={handleMovieMateClick}
           >
             Movie Mate
           </h1>
           <ul className="m-4 uppercase">
-            <li className="p-4 hover:underline cursor-pointer">Home</li>
-            <li className="p-4 hover:underline cursor-pointer">About</li>
-            <li className="p-4 hover:underline cursor-pointer">Pricing</li>
+            {showNavButtons && (
+              <>
+                <li className="p-4 hover:underline cursor-pointer">Home</li>
+                <li className="p-4 hover:underline cursor-pointer">About</li>
+                <li className="p-4 hover:underline cursor-pointer">Pricing</li>
+              </>
+            )}
             <li className="p-4">Login</li>
             <li className="p-4">Sign Up</li>
-            {/* <li className="p-4">Browse Movies</li>
-          <li className="p-4">Upcoming meets</li>
-          <li className="p-4">Chat</li> */}
           </ul>
         </div>
       </div>

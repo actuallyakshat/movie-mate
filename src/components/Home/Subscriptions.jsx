@@ -1,10 +1,14 @@
 import { MdOutlineAttachMoney } from "react-icons/md";
 import { TbUserPlus } from "react-icons/tb";
 import { FaUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Subscriptions = () => {
   return (
-    <div className="w-full py-[8rem] px-4 bg-platinumSilver font-Kanit" id="subscription">
+    <div
+      className="w-full py-[8rem] px-4 bg-platinumSilver font-Kanit"
+      id="subscription"
+    >
       <div className="max-w-[1300px] mx-auto grid md:grid-cols-3 gap-8">
         {/* Card1 */}
         <div className="w-full shadow-xl p-4 flex flex-col rounded-lg my-4 hover:scale-105 duration-300">
@@ -25,7 +29,7 @@ const Subscriptions = () => {
             </li>
           </div>
           <button className="bg-darkGreen w-[200px] rounded-md text-[1.2rem] text-white font-medium  my-6 mx-auto px-6 py-3">
-            Sign up for free
+            <Link to="/signup">Sign up for free</Link>
           </button>
         </div>
 

@@ -13,7 +13,11 @@ export default {
       },
       backgroundImage: {
         "hero-curves": "url('/assets/hero-curves.svg')",
-        "about-bg": "url('/assets/test-bg.svg')",
+        "login-bg": "url('/assets/login-bg.svg')",
+        "signup-bg": "url('/assets/signup-bg.svg')",
+        "features-bg": "url('/assets/features-bg.svg')",
+        "testomonial-bg": "url('/assets/testomonial-bg.svg')"
+
       },
     },
   },
