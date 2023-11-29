@@ -1,4 +1,4 @@
-import Template from "./Login-Signup/Template";
+import Template from "./Template";
 
 const Signup = ({ setIsLoggedIn }) => {
   return (

@@ -1,11 +1,12 @@
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import { Toaster } from "react-hot-toast";
-import { Routes, Route } from "react-router-dom";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
 import { useState } from "react";
-import BrowseMovies from "./components/BrowseMovies";
+import { Toaster } from "react-hot-toast";
+import Navbar from "./components/Home/Navbar";
+import Home from "./components/Home/Home";
+import { Routes, Route } from "react-router-dom";
+import Login from "./components/Login-Signup/Login";
+import Signup from "./components/Login-Signup/Signup";
+import BrowseMovies from "./components/BrowseMovies/BrowseMovies";
+import Chat from "./components/Chat/Chat";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,6 +26,7 @@ const App = () => {
         />
       </Routes> */}
       <BrowseMovies />
+      <Chat />
     </div>
   );
 };

@@ -40,7 +40,7 @@ const Navbar = (props) => {
 
   return (
     <div
-      className={`flex justify-center items-center fixed w-full ${
+      className={`flex justify-center items-center fixed top-0 w-full ${
         isHome ? "bg-darkGreen" : "bg-transparent"
       } z-[100]`}
     >

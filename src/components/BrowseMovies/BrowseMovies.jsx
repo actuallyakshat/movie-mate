@@ -1,4 +1,4 @@
-import moviedata from "../moviedata";
+import moviedata from "./moviedata";
 import MovieCard from "./MovieCard";
 import { useState } from "react";
 const BrowseMovies = () => {
