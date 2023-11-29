@@ -54,39 +54,35 @@ const Navbar = (props) => {
         <ul className="hidden md:flex text-[1.1rem] items-center ">
           {showNavButtons && (
             <>
-              <li className="p-4 hover:underline cursor-pointer">
-                <Link
-                  to="hero"
-                  spy={true}
-                  smooth={true}
-                  offset={-50}
-                  duration={500}
-                >
-                  Home
-                </Link>
-              </li>
-              <li className="p-4 hover:underline cursor-pointer">
-                <Link
-                  to="about"
-                  spy={true}
-                  smooth={true}
-                  offset={-50}
-                  duration={500}
-                >
-                  About
-                </Link>
-              </li>
-              <li className="p-4 hover:underline cursor-pointer">
-                <Link
-                  to="subscription"
-                  spy={true}
-                  smooth={true}
-                  offset={-50}
-                  duration={500}
-                >
-                  Pricing
-                </Link>
-              </li>
+              <Link
+                to="hero"
+                spy={true}
+                smooth={true}
+                offset={-50}
+                duration={500}
+              >
+                <li className="p-4 hover:underline cursor-pointer">Home</li>
+              </Link>
+
+              <Link
+                to="about"
+                spy={true}
+                smooth={true}
+                offset={-50}
+                duration={500}
+              >
+                <li className="p-4 hover:underline cursor-pointer">About</li>
+              </Link>
+
+              <Link
+                to="subscription"
+                spy={true}
+                smooth={true}
+                offset={-50}
+                duration={500}
+              >
+                <li className="p-4 hover:underline cursor-pointer">Pricing</li>
+              </Link>
             </>
           )}
           <li className="p-4">

@@ -7,14 +7,14 @@ import Login from "./components/Login-Signup/Login";
 import Signup from "./components/Login-Signup/Signup";
 import BrowseMovies from "./components/BrowseMovies/BrowseMovies";
 import Chat from "./components/Chat/Chat";
-
+import Dashboard from "./components/Dashboard/Dashboard";
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div className="text-2xl">
       <Toaster />
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route
           path="/login"
@@ -24,9 +24,17 @@ const App = () => {
           path="/signup"
           element={<Signup setIsLoggedIn={setIsLoggedIn} />}
         />
-      </Routes> */}
-      <BrowseMovies />
-      <Chat />
+        <Route
+          path="/BrowseMovies"
+          element={
+            <div className="mt-24 mb-16">
+              <BrowseMovies />
+            </div>
+          }
+        />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
     </div>
   );
 };

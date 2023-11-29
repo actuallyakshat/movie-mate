@@ -1,6 +1,6 @@
-const Analytics = () => {
+const About = () => {
   return (
-    <div className="w-full py-16 px-4 text-white">
+    <div className="w-full py-16 px-4 text-white" id="about">
       <div className="max-w-[1500px] mx-auto flex flex-col backdrop-blur-sm">
         <div className="flex flex-col justify-center items-center md:items-start gap-6 md:gap-4 border rounded-lg shadow-md p-8">
           <p className="text-white uppercase font-Kanit font-[300] text-4xl mb-8 text-center mx-auto">
@@ -51,4 +51,4 @@ const Analytics = () => {
   );
 };
 
-export default Analytics;
+export default About;
