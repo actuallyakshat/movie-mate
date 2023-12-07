@@ -8,6 +8,7 @@ import Signup from "./components/Login-Signup/Signup";
 import BrowseMovies from "./components/BrowseMovies/BrowseMovies";
 import Chat from "./components/Chat/Chat";
 import Dashboard from "./components/Dashboard/Dashboard";
+import Upgrade from "./components/Dashboard/Upgrade";
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
@@ -33,7 +34,11 @@ const App = () => {
           }
         />
         <Route path="/chat" element={<Chat />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/dashboard"
+          element={<Dashboard setIsLoggedIn={setIsLoggedIn} />}
+        />
+        <Route path="/upgrade" element={<Upgrade />} />
       </Routes>
     </div>
   );

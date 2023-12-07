@@ -7,50 +7,46 @@ import { Link as RouteLink, useLocation } from "react-router-dom";
 const Navbar = (props) => {
   const [nav, setNav] = useState(false);
   const [showNavButtons, setShowNavButtons] = useState(true);
-  const setIsLoggedIn = props.setIsLoggedIn;
-  const [postLogin, setPostLogin] = useState(false);
+  const isLoggedIn = props.isLoggedIn;
   const location = useLocation();
-  const [isHome, setIsHome] = useState(true);
+  const [isDarkNav, setIsDarkNav] = useState(true);
+  const [isDashboard, setIsDashboard] = useState(true);
   const handleNav = () => {
     setNav(!nav);
   };
 
   const handleLoginSignupClick = () => {
     setShowNavButtons(false);
-    setIsHome(false);
+    setIsDarkNav(false);
   };
 
   const handleMovieMateClick = () => {
     setShowNavButtons(true);
-    setIsLoggedIn(true);
-    setIsHome(true);
+    setIsDarkNav(true);
   };
 
   useEffect(() => {
     // Update isHome based on the current location
-    setIsHome(location.pathname === "/");
+    setIsDarkNav(location.pathname === "/" || location.pathname === "/upgrade");
+    setIsDashboard(location.pathname === "/dashboard");
     setShowNavButtons(location.pathname === "/");
-    if (location.pathname === "/dashboard") {
-      setPostLogin(true);
-    }
-    if (location.pathname === "/") {
-      setPostLogin(false);
-    }
   }, [location.pathname]);
 
   return (
     <div
       className={`flex justify-center items-center fixed top-0 w-full ${
-        isHome ? "bg-darkGreen" : "bg-transparent"
-      } z-[100]`}
+        isDarkNav ? "bg-darkGreen" : "bg-transparent" 
+      } ${isDashboard ? "hidden" : "" } z-[100]`}
     >
       <div className="text-platinumSilver font-[500] flex justify-between items-center h-[5rem] max-w-[1240px] w-full px-4">
-        <h1
-          className="text-2xl uppercase cursor-pointer font-Kanit font-[300] tracking-[0.2em]"
-          onClick={handleMovieMateClick}
-        >
-          <RouteLink to="/">Movie Mate</RouteLink>
-        </h1>
+        <RouteLink to="/">
+          <h1
+            className="text-2xl uppercase cursor-pointer font-Kanit font-[300] tracking-[0.2em]"
+            onClick={handleMovieMateClick}
+          >
+            Movie Mate
+          </h1>
+        </RouteLink>
         <ul className="hidden md:flex text-[1.1rem] items-center ">
           {showNavButtons && (
             <>
@@ -85,17 +81,20 @@ const Navbar = (props) => {
               </Link>
             </>
           )}
-          <li className="p-4">
+          {!isLoggedIn && (
             <RouteLink to="/login">
-              <button
-                onClick={handleLoginSignupClick}
-                className="px-4 py-1 rounded-md border border-platinumSilver text-platinumSilver hover:bg-platinumSilver hover:text-darkGreen transition-all duration-200"
-              >
-                Login
-              </button>
+              <li className="p-4">
+                <button
+                  onClick={handleLoginSignupClick}
+                  className="px-4 py-1 rounded-md border border-platinumSilver text-platinumSilver hover:bg-platinumSilver hover:text-darkGreen transition-all duration-200"
+                >
+                  Login
+                </button>
+              </li>
             </RouteLink>
-          </li>
-          {!postLogin && (
+          )}
+
+          {!isLoggedIn && (
             <li>
               <RouteLink to="/signup">
                 <button
@@ -107,10 +106,15 @@ const Navbar = (props) => {
               </RouteLink>
             </li>
           )}
-          {postLogin && (
-            <li className="p-4 hover:underline cursor-pointer">
-              <RouteLink to="/chat">Chat</RouteLink>
-            </li>
+          {isLoggedIn && (
+            <RouteLink to="/chat">
+              <li className="p-4 hover:underline cursor-pointer">Chat</li>
+            </RouteLink>
+          )}
+          {isLoggedIn && (
+            <RouteLink to="/dashboard">
+              <li className="p-4 hover:underline cursor-pointer">Dashboard</li>
+            </RouteLink>
           )}
         </ul>
 

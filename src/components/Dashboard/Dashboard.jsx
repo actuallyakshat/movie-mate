@@ -1,9 +1,9 @@
 import Sidebar from "./Sidebar";
 import Content from "./Content"
-const Dashboard = () => {
+const Dashboard = (setIsLoggedIn) => {
   return (
     <div className="flex">
-      <Sidebar />
+      <Sidebar setIsLoggedIn={setIsLoggedIn}/>
       <Content />
     </div>
   );

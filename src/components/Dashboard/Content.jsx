@@ -1,6 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 import MoviePreview from "./MoviePreview";
 import RequestsAndMeets from "./RequestsAndMeets";
+import { Link as RouteLink } from "react-router-dom";
 const Content = () => {
   return (
     <div className="w-full min-h-screen h-full">
@@ -16,9 +17,18 @@ const Content = () => {
             <FaSearch className="text-xl w-fit pr-2 text-white" />
           </button>
         </div>
-        <button className="text-white border border-white px-4 py-2 text-[1.1rem] font-bold hover:bg-white hover:text-black rounded-lg transition-all duration-300">
-          Upgrade Now
-        </button>
+        <div className="flex items-center gap-4">
+          <RouteLink to="/upgrade">
+            <button className="text-white border border-white px-4 py-2 text-[1.1rem] font-bold hover:bg-white hover:text-black rounded-lg transition-all duration-300">
+              Upgrade Now
+            </button>
+          </RouteLink>
+          <RouteLink to="/chat">
+            <button className="text-white border border-white px-4 py-2 text-[1.1rem] font-bold hover:bg-white hover:text-black rounded-lg transition-all duration-300">
+              Chats
+            </button>
+          </RouteLink>
+        </div>
       </div>
       <MoviePreview />
       <RequestsAndMeets />

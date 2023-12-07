@@ -4,12 +4,20 @@ import { FaHome } from "react-icons/fa";
 import { IoChatboxEllipses } from "react-icons/io5";
 import { FaBell } from "react-icons/fa";
 import { RiLogoutBoxRLine } from "react-icons/ri";
-const Sidebar = () => {
+import { Link as RouteLink } from "react-router-dom";
+const Sidebar = (setIsLoggedIn) => {
+
+  function logoutHandler(){
+    setIsLoggedIn(false);
+  }
+
   return (
     <div className="bg-white min-h-screen h-auto w-[23vw]">
-      <h1 className="text-[2rem] uppercase cursor-pointer text-center pt-6 font-Kanit font-[300] tracking-[0.2em]">
-        Movie Mate
-      </h1>
+      <RouteLink to="/">
+        <h1 className="text-[2rem] uppercase cursor-pointer text-center pt-6 font-Kanit font-[300] tracking-[0.2em]">
+          Movie Mate
+        </h1>
+      </RouteLink>
       <div className="flex flex-col mx-auto w-full items-center justify-center h-fit mt-4 py-6 border-b-[1px] border-gray-300">
         <img
           src="https://i.pinimg.com/564x/49/aa/80/49aa80b2e1fb69181770132b827b4f91.jpg"
@@ -64,12 +72,12 @@ const Sidebar = () => {
       </div>
 
       <div className="my-8 flex justify-center">
-        <div className="flex items-center bg-darkGreen rounded-md border text-platinumSilver hover:bg-[#10212b] hover:text-platinumSilver transition-all duration-200 px-5 py-2 gap-2">
-          <RiLogoutBoxRLine />
-          <button className="text-[1.1rem] font-[500]  ">
-            Logout
-          </button>
-        </div>
+        <RouteLink to="/">
+          <div className="flex items-center bg-darkGreen rounded-md border text-platinumSilver hover:bg-[#10212b] hover:text-platinumSilver transition-all duration-200 px-5 py-2 gap-2" onClick={logoutHandler}>
+            <RiLogoutBoxRLine />
+            <button className="text-[1.1rem] font-[500]">Logout</button>
+          </div>
+        </RouteLink>
       </div>
     </div>
   );

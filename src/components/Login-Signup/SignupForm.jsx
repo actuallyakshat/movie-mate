@@ -75,7 +75,7 @@ const SignupForm = ({ setIsLoggedIn }) => {
         {/* first name and lastname */}
         <div className="flex gap-x-4 mt-[20px]">
           <label htmlFor="firstname" className="w-full">
-            <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]">
+            <p className="text-[0.875rem] text-white mb-1 leading-[1.375rem]">
               First Name <sup className="text-red-500">*</sup>
             </p>
             <input
@@ -85,12 +85,12 @@ const SignupForm = ({ setIsLoggedIn }) => {
               onChange={changeHandler}
               placeholder="Enter First Name"
               value={formData.firstname}
-              className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px]"
+              className="bg-white rounded-[0.5rem] text-black w-full p-[12px]"
             />
           </label>
 
           <label htmlFor="lastname" className="w-full">
-            <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]">
+            <p className="text-[0.875rem] text-white mb-1 leading-[1.375rem]">
               Last Name <sup className="text-red-500">*</sup>
             </p>
             <input
@@ -100,14 +100,14 @@ const SignupForm = ({ setIsLoggedIn }) => {
               onChange={changeHandler}
               placeholder="Enter Last Name"
               value={formData.lastname}
-              className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px]"
+              className="bg-richblack-800 rounded-[0.5rem] text-black w-full p-[12px]"
             />
           </label>
         </div>
         {/* email address */}
         <div className="mt-[20px]">
           <label htmlFor="email" className="w-full mt-[20px]">
-            <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]">
+            <p className="text-[0.875rem] text-white mb-1 leading-[1.375rem]">
               Email <sup className="text-red-500">*</sup>
             </p>
             <input
@@ -117,7 +117,7 @@ const SignupForm = ({ setIsLoggedIn }) => {
               onChange={changeHandler}
               placeholder="Enter Email Address"
               value={formData.email}
-              className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px]"
+              className="bg-richblack-800 rounded-[0.5rem] text-black w-full p-[12px]"
             />
           </label>
         </div>
@@ -125,7 +125,7 @@ const SignupForm = ({ setIsLoggedIn }) => {
         {/* create and confirm password */}
         <div className="w-full flex gap-x-4 mt-[20px]">
           <label htmlFor="password" className="w-full relative">
-            <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]">
+            <p className="text-[0.875rem] text-white mb-1 leading-[1.375rem]">
               Create Password<sup className="text-red-500 p-1">*</sup>
             </p>
             <input
@@ -135,7 +135,7 @@ const SignupForm = ({ setIsLoggedIn }) => {
               onChange={changeHandler}
               placeholder="Enter Password"
               value={formData.password}
-              className="text-black rounded-[0.5rem] text-richblack-5 w-full p-[12px]"
+              className="text-black rounded-[0.5rem] text-black w-full p-[12px]"
             />
           </label>
 
@@ -151,7 +151,7 @@ const SignupForm = ({ setIsLoggedIn }) => {
           </span>
 
           <label htmlFor="confirmPassword" className="w-full relative">
-            <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]">
+            <p className="text-[0.875rem] text-white mb-1 leading-[1.375rem]">
               Confirm Password<sup className="text-red-500 p-1">*</sup>
             </p>
             <input
@@ -161,7 +161,7 @@ const SignupForm = ({ setIsLoggedIn }) => {
               onChange={changeHandler}
               placeholder="Confirm Password"
               value={formData.confirmPassword}
-              className="rounded-[0.5rem] text-richblack-5 w-full p-[12px] text-black"
+              className="rounded-[0.5rem] text-black w-full p-[12px] text-black"
             />
           </label>
         </div>
